@@ -3,7 +3,7 @@ This is a simple loader for including SVG vector images in your JS code.
 ```bash
 npm install svg-loaders-js
 ```
-## Import all svg loaders in a namespaced fashion
+## Usage in code
 Import svg in your module:
 ```js
 import icon from './icon.svg';
