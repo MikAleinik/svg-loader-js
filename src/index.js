@@ -1,10 +1,23 @@
-const EOL = '\n';
-const SEPARATOR_PROPERTY = '" ';
-const SEPARATOR_VALUE = '=';
-const QUOTE = '"';
-const TAG_CLOSE = '>';
-const NMSP = 'xmlns';
 module.exports = function (content) {
+    const EOL = '\n';
+    const SEPARATOR_PROPERTY = '" ';
+    const SEPARATOR_VALUE = '=';
+    const QUOTE = '"';
+    const TAG_CLOSE = '>';
+    const NMSP = 'xmlns';
+
+    function parseString(svgString) {
+        return svgString.split(SEPARATOR_PROPERTY);
+    }
+    function parseProperty(strProperty) {
+        const result = strProperty.split(SEPARATOR_VALUE);
+        const lastSymbol = result[1].slice(result[1].length - 1);
+        return {
+            name: result[0],
+            value: (lastSymbol !== QUOTE ? result[1].slice(1) : result[1].slice(1, result[1].length - 1))
+        }
+    }
+    
     let result = {
         property: Array(),
         geometry: Array()
@@ -35,14 +48,3 @@ module.exports = function (content) {
         }
         return svg;})()`;
 };
-function parseString(svgString) {
-    return svgString.split(SEPARATOR_PROPERTY);
-}
-function parseProperty(strProperty) {
-    const result = strProperty.split(SEPARATOR_VALUE);
-    const lastSymbol = result[1].slice(result[1].length - 1);
-    return {
-        name: result[0],
-        value: (lastSymbol !== QUOTE ? result[1].slice(1) : result[1].slice(1, result[1].length - 1))
-    }
-}
