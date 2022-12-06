@@ -38,8 +38,6 @@ module.exports = function (content) {
     }
     return `export default ((result = ${JSON.stringify(result)})=>{
         const svg = document.createElementNS(result.xmlns, "svg");
-        // svg.setAttributeNS(null,"height",60);
-        // svg.setAttributeNS(null,"width",60);
         for (let i = 0; i < result.property.length; i++) {
             svg.setAttributeNS(null,\`\${result.property[i].name}\`,\`\$\{result.property[i].value\}\`);
         }
