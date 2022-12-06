@@ -17,5 +17,8 @@ button.append(icon);
 ## Options
 Loader has no additional options. 
 
+## Description
+This loader does not support loading an svg file with several icons separated by id
+
 ## Git
 Git [repository](https://github.com/MikAleinik/svg-loader-js) with loader files.
