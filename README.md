@@ -3,6 +3,22 @@ This is a simple loader for including SVG vector images in your JS code.
 ```bash
 npm install -D svg-loaders-js
 ```
+## Settings
+In webpack config specify
+```js
+    module: {
+        rules: [
+            {
+                test: /\.(svg)$/i,
+                use: "svg-loader-js"
+            },
+        ],
+    },
+```
+When using TypeScript add a module definition to your index.d.ts file
+```ts
+declare module "*.svg"
+```
 ## Usage in code
 Import svg in your module:
 ```js
