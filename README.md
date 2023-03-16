@@ -1,7 +1,7 @@
 This is a simple loader for including SVG vector images in your JS code.
 ## Install from NPM
 ```bash
-npm install -D svg-loaders-js
+npm install -D svg-loader-js
 ```
 ## Settings
 In webpack config specify

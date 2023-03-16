@@ -21,7 +21,8 @@
   "keywords": [
     "webpack",
     "svg",
-    "loader"
+    "loader",
+    "js"
   ],
   "author": {
     "name": "Mik Alienik",
