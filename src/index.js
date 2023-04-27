@@ -13,8 +13,8 @@ module.exports = function (content) {
         const result = strProperty.split(SEPARATOR_VALUE);
         const lastSymbol = result[1].slice(result[1].length - 1);
         return {
-            name: result[0],
-            value: (lastSymbol !== QUOTE ? result[1].slice(1) : result[1].slice(1, result[1].length - 1))
+            name: result[0].trim(),
+            value: (lastSymbol !== QUOTE ? result[1].slice(1) : result[1].slice(1, result[1].length - 1)).trim()
         }
     }
     
@@ -25,7 +25,7 @@ module.exports = function (content) {
     const svgParced = content.replaceAll(EOL, '').split(TAG_CLOSE);
     const svgProperty = parseString(svgParced[0]);
     svgProperty[0] = svgProperty[0].slice(5);
-    for (let i = 1; i < svgProperty.length; i += 1) {
+    for (let i = 0; i < svgProperty.length; i += 1) {
         const prop = parseProperty(svgProperty[i]);
         if (prop.name === NMSP) {
             result.xmlns = prop.value;
